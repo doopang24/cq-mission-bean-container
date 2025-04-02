@@ -3,6 +3,7 @@
  */
 package kbg.bean;
 
+import kbg.bean.config.DIHandler;
 import kbg.bean.domain.human.Human;
 import kbg.bean.domain.weapon.Bow;
 import kbg.bean.domain.weapon.Sword;
@@ -15,11 +16,13 @@ public class Game {
 
     public static void main(String[] args) {
 
-        Weapon sword = new Sword();
-        Weapon bow = new Bow();
+        DIHandler diHandler = new DIHandler();
 
-        Human h1 = new Human("기사", sword);
-        Human h2 = new Human("궁수", bow);
+//        Weapon sword = new Sword();
+//        Weapon bow = new Bow();
+
+        Human h1 = diHandler.swordHuman();
+        Human h2 = diHandler.bowHuman();
 
         h1.attack(h2);
         h2.attack(h1);
