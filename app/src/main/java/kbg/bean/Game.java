@@ -8,6 +8,8 @@ import kbg.bean.domain.human.Human;
 import kbg.bean.domain.weapon.Bow;
 import kbg.bean.domain.weapon.Sword;
 import kbg.bean.domain.weapon.Weapon;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Game {
     public String getGreeting() {
@@ -16,10 +18,10 @@ public class Game {
 
     public static void main(String[] args) {
 
-        DIHandler diHandler = DIHandler.getInstance();
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 
-        Human h1 = diHandler.swordHuman();
-        Human h2 = diHandler.bowHuman();
+        Human h1 = ctx.getBean("swordHuman", Human.class);
+        Human h2 = ctx.getBean("bowHuman", Human.class);
 
         h1.attack(h2);
         h2.attack(h1);

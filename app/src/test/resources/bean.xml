@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 무기 등록 -->
+    <bean id="sword" class="kbg.bean.domain.weapon.Sword"/>
+    <bean id="bow" class="kbg.bean.domain.weapon.Bow"/>
+
+    <!-- 사람 등록 -->
+    <bean id="swordHuman" class="kbg.bean.domain.human.Human">
+        <constructor-arg value="검사"/>
+        <constructor-arg ref="sword"/>
+    </bean>
+    <bean id="bowHuman" class="kbg.bean.domain.human.Human">
+        <constructor-arg value="궁수"/>
+        <constructor-arg ref="bow"/>
+    </bean>
+
+
+</beans>
