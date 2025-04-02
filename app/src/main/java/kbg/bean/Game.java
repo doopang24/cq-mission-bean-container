@@ -16,16 +16,12 @@ public class Game {
 
     public static void main(String[] args) {
 
-        DIHandler diHandler = new DIHandler();
-
-//        Weapon sword = new Sword();
-//        Weapon bow = new Bow();
+        DIHandler diHandler = DIHandler.getInstance();
 
         Human h1 = diHandler.swordHuman();
         Human h2 = diHandler.bowHuman();
 
         h1.attack(h2);
         h2.attack(h1);
-
     }
 }
